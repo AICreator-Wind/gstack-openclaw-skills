@@ -1,4 +1,4 @@
-# gstack-openclaw-skills - gstack 的 WorkBuddy/OpenClaw 适配版
+# gstack-openclaw-skills - gstack 的 OpenClaw 适配版
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/garrytan/gstack" alt="Stars">
