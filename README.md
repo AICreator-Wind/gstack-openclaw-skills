@@ -1,10 +1,10 @@
 # gstack-openclaw-skills - gstack 的 OpenClaw 适配版
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/garrytan/gstack" alt="Stars">
-  <img src="https://img.shields.io/github/forks/garrytan/gstack" alt="Forks">
-  <img src="https://img.shields.io/github/license/gstack-openclaw-skills/gstack-openclaw-skills" alt="License">
-  <img src="https://img.shields.io/badge/AI-Assistant-WorkBuddy-blue" alt="WorkBuddy">
+  <img src="https://img.shields.io/github/stars/AICreator-Wind/gstack-openclaw-skills" alt="Stars">
+  <img src="https://img.shields.io/github/forks/AICreator-Wind/gstack-openclaw-skills" alt="Forks">
+  <img src="https://img.shields.io/github/license/AICreator-Wind/gstack-openclaw-skills" alt="License">
+  <img src="https://img.shields.io/badge/Platform-WorkBuddy%20%7C%20OpenClaw-blue" alt="WorkBuddy">
 </p>
 
 ## 简介
