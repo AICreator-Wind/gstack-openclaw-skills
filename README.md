@@ -1,149 +1,590 @@
-# gstack-openclaw-skills - gstack 的 OpenClaw 适配版
+# gstack-openclaw-skills
+
+**Complete development workflow suite from Y Combinator CEO Garry Tan's gstack, adapted for OpenClaw/WorkBuddy.**
 
 <p align="center">
   <a href="https://github.com/AICreator-Wind/gstack-openclaw-skills/stargazers"><img src="https://img.shields.io/github/stars/AICreator-Wind/gstack-openclaw-skills" alt="Stars"></a>
   <a href="https://github.com/AICreator-Wind/gstack-openclaw-skills/network/members"><img src="https://img.shields.io/github/forks/AICreator-Wind/gstack-openclaw-skills" alt="Forks"></a>
   <a href="https://github.com/AICreator-Wind/gstack-openclaw-skills/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AICreator-Wind/gstack-openclaw-skills" alt="License"></a>
-  <img src="https://img.shields.io/badge/Platform-OpenClaw-blue" alt="OpenClaw">
+  <img src="https://img.shields.io/badge/Platform-OpenClaw%20%7C%20WorkBuddy-blue" alt="OpenClaw | WorkBuddy">
+  <img src="https://img.shields.io/badge/Version-2.0.0-green" alt="Version 2.0.0">
 </p>
 
-## 目录
+## Table of Contents
 
-- [简介](#简介)
-- [核心功能](#核心功能)
-- [强力工具](#强力工具)
-- [快速开始](#快速开始)
-- [目录结构](#目录结构)
-- [哲学理念](#哲学理念)
-- [与 gstack 的区别](#与-gstack-的区别)
-- [贡献指南](#贡献指南)
-- [许可证](#许可证)
-- [致谢](#致谢)
+- [What is gstack-skills?](#what-is-gstack-skills)
+- [What's New in v2.0](#whats-new-in-v20)
+- [Quick Start](#quick-start)
+- [Available Commands](#available-commands)
+- [Complete Workflow Example](#complete-workflow-example)
+- [Installation](#installation)
+- [Philosophy](#philosophy)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 简介
+## What is gstack-skills?
 
-gstack-openclaw-skills 是 [gstack](https://github.com/garrytan/gstack) 的开源 OpenClaw 适配版本，专门适配 OpenClaw 等 AI 助手平台。
+gstack-skills is the **OpenClaw/WorkBuddy adaptation** of [gstack](https://github.com/garrytan/gstack), the open-source development workflow created by Garry Tan, CEO of Y Combinator.
 
-gstack 是 Y Combinator 总裁兼 CEO Garry Tan 开源的 Claude Code 设置，包含 15 个专业工具，可以充当 CEO、设计师、工程经理、发布经理、文档工程师和 QA 的角色。Garry Tan 声称在 60 天内编写了**超过 60 万行生产代码**。
+**Garry Tan used gstack to write 600,000+ lines of production code in 60 days (35% tests).**
 
-本项目将 gstack 的核心功能转换为通用 AI 助手技能格式，让你可以在任何支持技能的 AI 平台上使用这套强大的开发工作流。
+This adaptation makes those powerful workflows available to any AI agent running on OpenClaw or WorkBuddy platforms.
 
-## 核心功能
+### Key Features
 
-| 技能                     | 角色         | 功能描述                       |
-| ------------------------ | ------------ | ------------------------------ |
-| `/office-hours`          | YC 办公时间  | 重新定义产品问题，验证创业想法 |
-| `/plan-ceo-review`       | CEO/创始人   | 从商业角度评审功能想法         |
-| `/plan-eng-review`       | 工程经理     | 锁定技术架构，评估实现方案     |
-| `/plan-design-review`    | 高级设计师   | 设计评审，检查用户体验         |
-| `/design-consultation`   | 设计合作伙伴 | 构建完整设计系统               |
-| `/review`                | 高级工程师   | 代码审查，发现生产环境 bug     |
-| `/investigate`           | 调试专家     | 系统化根因分析                 |
-| `/design-review`         | 编码设计师   | 设计审计和修复                 |
-| `/qa`                    | QA 负责人    | 测试应用并修复 bug             |
-| `/qa-only`               | QA 报告员    | 纯 bug 报告                    |
-| `/ship`                  | 发布工程师   | 同步代码、运行测试、推送 PR    |
-| `/document-release`      | 技术作家     | 更新项目文档                   |
-| `/retro`                 | 工程经理     | 团队周报                       |
-| `/browse`                | QA 工程师    | 真实浏览器测试                 |
-| `/setup-browser-cookies` | 会话管理器   | 导入浏览器 cookies             |
+- **15 Specialized Tools**: Complete suite covering product ideation to deployment
+- **Automated Workflows**: AI executes workflows automatically based on natural language commands
+- **One-Command Access**: Simply say `/ship`, `/review`, `/qa`, etc.
+- **State Management**: Share context between workflow steps
+- **OpenClaw Native**: Built specifically for OpenClaw/WorkBuddy skill system
 
-## 强力工具
+## What's New in v2.0
 
-| 技能              | 功能描述                          |
-| ----------------- | --------------------------------- |
-| `/codex`          | OpenAI Codex 独立审查（第二意见） |
-| `/careful`        | 危险操作警告（安全护栏）          |
-| `/freeze`         | 限制文件编辑范围                  |
-| `/guard`          | 完全安全模式（careful + freeze）  |
-| `/unfreeze`       | 移除 freeze 边界                  |
-| `/gstack-upgrade` | 自我升级                          |
+**v2.0 is a complete rewrite** that transforms gstack from documentation into **fully executable skills**:
 
-## 快速开始
+### ✅ New Capabilities
 
-### 在 WorkBuddy 中使用
+1. **Automated Execution**: Skills now execute automatically, not just provide guidance
+2. **Command Routing**: Parse user input and route to appropriate skill
+3. **State Management**: Share data and context between skills
+4. **Workflow Orchestration**: Run complete workflows with single commands
+5. **Native Integration**: Built for OpenClaw/WorkBuddy from the ground up
 
-你可以通过以下方式使用 gstack-openclaw-skills 技能：
+### 🔄 Changes from v1.0
 
-1. **手动复制**：将技能文件内容复制到你的 WorkBuddy 项目中
-2. **技能市场**：未来将支持直接从技能市场安装
+| Feature | v1.0 | v2.0 |
+|---------|------|------|
+| Execution | Manual | Automatic |
+| Integration | Documentation only | Native skills |
+| State | None | Full state management |
+| Commands | 15 commands | 15 commands + routing |
+| Workflows | Static | Dynamic & orchestrated |
 
-### 推荐工作流
+## Quick Start
+
+### 🎯 Method 1: Interactive Installation (Easiest)
+
+Just tell OpenClaw/WorkBuddy to install it:
 
 ```
-1. /office-hours    → 向 AI 描述你想构建的产品
-2. /plan-ceo-review → CEO 视角评审功能想法
-3. /plan-eng-review → 工程经理锁定技术架构
-4. /review          → 高级工程师审查代码
-5. /qa              → QA 测试暂环境
-6. /ship            → 发布代码
+Please install gstack-skills for me
 ```
 
-## 目录结构
+Or:
 
 ```
-gstack-openclaw-skills/
-├── office-hours/           # YC 办公时间
-├── plan-ceo-review/        # CEO 评审
-├── plan-eng-review/        # 工程评审
-├── plan-design-review/     # 设计评审
-├── design-consultation/    # 设计咨询
-├── review/                 # 代码审查
-├── investigate/            # 调试调查
-├── design-review/          # 设计审查
-├── qa/                     # QA 测试
-├── qa-only/                # QA 报告
-├── ship/                  # 发布工具
-├── document-release/       # 文档发布
-├── retro/                 # 团队回顾
-├── browse/                 # 浏览器测试
-├── codex/                 # Codex 集成
-├── careful/                # 安全护栏
-├── freeze/                # 编辑锁定
-├── guard/                  # 完全安全
-├── docs/                   # 文档
-├── SKILL.md               # 主技能文件
-└── README.md              # 本文件
+Help me install gstack-skills from GitHub: AICreator-Wind/gstack-openclaw-skills
 ```
 
-## 哲学理念
+OpenClaw/WorkBuddy will:
+- Clone the repository
+- Detect your platform
+- Copy skills to the correct location
+- Verify installation
+- Tell you when it's ready!
 
-### 完整性原则 (Boil the Lake)
+**That's it!** Then restart OpenClaw/WorkBuddy and say `/gstack` to get started.
 
-> "不要做半桶水，要做就做一整桶" —— Garry Tan
-
-AI 辅助编程应该追求完整实现，而非走捷径。完成一项任务意味着真正完成，而不是留下"优化建议"或"待完成事项"。
-
-### 智能借鉴
-
-在借鉴其他产品的功能时，始终思考：
-
-1. 该功能在原始产品中为何有效？
-2. 该功能在自己的产品中可能成功还是失败？
-3. 需要哪些适配才能使其在自己的产品中成功？
-
-## 与 gstack 的区别
-
-| 特性     | gstack (原版)    | gstack-openclaw-skills |
-| -------- | ---------------- | ---------------------- |
-| 平台     | Claude Code      | 通用 AI 助手           |
-| 命令格式 | Slash 命令       | 技能调用               |
-| 依赖     | Bun、Git、浏览器 | 无特殊依赖             |
-| 本地脚本 | 包含             | 已转换为纯 prompt      |
-
-## 贡献指南
-
-欢迎贡献！请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何参与贡献。
-
-## 许可证
-
-MIT License - 详见 [LICENSE](LICENSE) 文件。
-
-## 致谢
-
-- 感谢 [Garry Tan](https://github.com/garrytan) 创建 gstack
-- 感谢所有贡献者
+**For detailed instructions**, see [INSTALL.md](INSTALL.md)
 
 ---
 
-**备注**：本项目仅供学习交流使用，gstack 的版权归原作者所有。
+### ⚡ Method 2: One-Click Installation
+
+**Fastest method** - Run a single script:
+
+#### macOS/Linux
+
+```bash
+git clone https://github.com/AICreator-Wind/gstack-openclaw-skills.git
+cd gstack-openclaw-skills
+./install.sh
+```
+
+#### Windows
+
+```batch
+git clone https://github.com/AICreator-Wind/gstack-openclaw-skills.git
+cd gstack-openclaw-skills
+install.bat
+```
+
+---
+
+### 🔧 Method 3: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/AICreator-Wind/gstack-openclaw-skills.git
+cd gstack-openclaw-skills
+
+# Copy to OpenClaw skills directory
+cp -r gstack-skills ~/.openclaw/skills/
+
+# Or for WorkBuddy
+cp -r gstack-skills ~/.workbuddy/skills/
+```
+
+---
+
+### Start Using
+
+After installation, restart OpenClaw/WorkBuddy and simply use any gstack command:
+
+```python
+# Get help and see all commands
+User: "/gstack"
+
+# Validate an idea
+User: "/office-hours I have an idea for an AI code reviewer"
+
+# Review code
+User: "/review my current branch"
+
+# Deploy
+User: "/ship the user authentication feature"
+```
+
+### 3. See Available Commands
+
+```python
+User: "/gstack"
+
+# AI shows all available commands:
+# /office-hours - Product ideation and validation
+# /plan-ceo-review - CEO perspective planning
+# /plan-eng-review - Engineering architecture review
+# /review - Pre-merge code review
+# /qa - Test application and fix bugs
+# /ship - Automated release workflow
+# ... (and 9 more)
+```
+
+## Available Commands
+
+### Product Ideation Phase
+
+| Command | Purpose |
+|---------|---------|
+| `/office-hours` | YC office hours for product idea validation |
+| `/plan-ceo-review` | CEO perspective on feature planning |
+| `/plan-eng-review` | Engineering architecture review |
+| `/plan-design-review` | Design review |
+
+### Development Phase
+
+| Command | Purpose |
+|---------|---------|
+| `/review` | Pre-merge code review with automatic fixes |
+| `/investigate` | Systematic root cause analysis |
+| `/design-consultation` | Design system consultation |
+
+### Testing & Release Phase
+
+| Command | Purpose |
+|---------|---------|
+| `/qa` | Test application and fix bugs |
+| `/qa-only` | Bug reporting only (no fixes) |
+| `/ship` | Fully automated release workflow |
+
+### Documentation & Review
+
+| Command | Purpose |
+|---------|---------|
+| `/document-release` | Update project documentation |
+| `/retro` | Team retrospective and weekly reports |
+
+### Power Tools
+
+| Command | Purpose |
+|---------|---------|
+| `/codex` | OpenAI Codex independent review (second opinion) |
+| `/careful` | Dangerous operation warnings |
+| `/freeze` | Lock file editing scope |
+| `/guard` | Full safety mode (careful + freeze) |
+
+## How to Use gstack-skills
+
+Once installed, using gstack-skills is simple - just talk to OpenClaw/WorkBuddy!
+
+### Getting Started
+
+After installation, restart OpenClaw/WorkBuddy and say:
+
+```
+User: /gstack
+```
+
+You'll see all available commands.
+
+### Example Conversations
+
+#### Quick Code Review
+
+```
+User: /review
+
+AI: Reviewing your current branch...
+
+Files changed: 3
+Lines added: +127, Lines removed: -45
+
+Critical Issues Found:
+❌ 1. SQL Injection Risk in src/db/queries.py:42
+
+Auto-fixes Applied:
+✅ Fixed SQL injection
+✅ Added rate limiting
+
+Status: ⚠️ DONE_WITH_CONCERNS
+NEXT: Run /qa for testing
+```
+
+#### Testing
+
+```
+User: /qa
+
+AI: Running systematic QA tests...
+
+Test Results:
+• Unit Tests: 42/42 passed ✅
+• Integration Tests: 15/15 passed ✅
+
+Health Score: 95/100
+
+Status: ✅ READY TO SHIP
+```
+
+#### Deployment
+
+```
+User: /ship
+
+AI: Preparing automated release...
+
+1. Merging base branch... ✅
+2. Running tests... ✅ (57/57 passed)
+3. Updating version... ✅ (v2.2.0)
+4. Creating PR... ✅ (#247)
+
+Status: ✅ DEPLOYED
+```
+
+### Natural Language Works Too!
+
+You don't need exact commands. Natural language works:
+
+```
+User: review my code
+
+AI: Reviewing your current branch...
+[Same as /review]
+```
+
+```
+User: deploy to production
+
+AI: Preparing automated release...
+[Same as /ship]
+```
+
+### For Complete Guide
+
+See [CONVERSATION_GUIDE.md](CONVERSATION_GUIDE.md) for detailed examples and tips.
+
+---
+
+## Complete Workflow Example
+
+Here's how you'd use gstack-skills to develop and ship a new feature:
+
+```python
+# Step 1: Validate the idea
+User: "/office-hours I want to add user profiles to my app"
+
+AI: Let me validate your startup idea using YC's 6 questions:
+1. What is the user's biggest pain point?
+2. How does your solution solve it?
+3. Why aren't existing solutions good enough?
+4. Can you reach these users?
+5. Will people pay?
+6. How will users discover it?
+
+[Guides through all questions]
+
+# Step 2: CEO perspective review
+User: "/plan-ceo-review user profiles"
+
+AI: Analyzing from CEO perspective...
+- Strategic alignment: ✅
+- Market opportunity: ✅
+- Resource requirements: Medium
+- Risks: Identified 3 key risks
+
+# Step 3: Engineering architecture review
+User: "/plan-eng-review user profiles architecture"
+
+AI: Reviewing technical architecture...
+- Database design: PostgreSQL with JSONB
+- API structure: RESTful with GraphQL fallback
+- Security: JWT + OAuth2
+- Scalability: Horizontal scaling ready
+
+# Step 4: Implement the feature
+[Developer writes code...]
+
+# Step 5: Code review
+User: "/review"
+
+AI: Reviewing your current branch...
+
+Files changed: 12
+Lines added: +342
+Lines removed: -89
+
+Critical Issues Found:
+1. SQL Injection Risk in src/db/queries.py:42 ❌
+2. Missing Authentication in src/api/routes.py:87 ❌
+
+Auto-fixes Applied:
+1. ✅ Fixed 2 unused imports
+2. ✅ Formatted code with black
+
+Status: ⚠️ DONE_WITH_CONCERNS
+Please fix critical issues before merging.
+
+# Step 6: QA testing
+User: "/qa user profiles"
+
+AI: Running systematic QA tests...
+
+Test Results:
+- Health Score: 87/100
+- Bugs Found: 5
+- Bugs Fixed: 5
+- Tests Passed: 42/42
+
+Status: ✅ Ready to ship
+
+# Step 7: Deploy
+User: "/ship"
+
+AI: Preparing automated release...
+
+1. ✅ Merged base branch
+2. ✅ Ran all tests (42/42 passed)
+3. ✅ Updated version to v2.1.0
+4. ✅ Generated changelog
+5. ✅ Created PR #234
+6. ✅ Updated documentation
+
+Status: ✅ SHIPPED
+PR: https://github.com/your/repo/pull/234
+```
+
+**Total time**: ~15 minutes for end-to-end feature development and deployment
+
+## Installation
+
+### Option 1: Copy to Skills Directory
+
+```bash
+# For OpenClaw
+cp -r gstack-skills ~/.openclaw/skills/
+
+# For WorkBuddy
+cp -r gstack-skills ~/.workbuddy/skills/
+```
+
+### Option 2: Symbolic Link (Development)
+
+```bash
+# Create symbolic link
+ln -s /path/to/gstack-openclaw-skills/gstack-skills ~/.openclaw/skills/gstack-skills
+```
+
+### Option 3: Project-Level Installation
+
+Copy to your project root:
+
+```bash
+cp -r gstack-skills/ /path/to/your/project/
+```
+
+### Verification
+
+```python
+# In OpenClaw/WorkBuddy, test installation
+User: "/gstack"
+
+# If installed correctly, you'll see the command overview
+```
+
+## Philosophy
+
+### Boil the Lake Principle
+
+> "Don't be half-invested, boil the whole lake" - Garry Tan
+
+AI-assisted development should pursue **complete implementation**, not shortcuts.
+
+- **Identify problems, then actually fix them** (don't just note them)
+- **Complete the task** (don't leave "todo: optimize" comments)
+- **100% quality is achievable** with AI assistance (don't settle for "good enough")
+
+### Intelligent Borrowing
+
+When borrowing features from other products, always ask:
+
+1. **Why does it work in the original product?**
+2. **Will it succeed or fail in your product?**
+3. **What adaptations are needed for success?**
+
+### Specificity is the Only Currency
+
+- **Demand specific evidence**, not vague descriptions
+- **"10 people said they want it"** is worth more than **"everyone wants it"**
+- **Focus on actual behavior**, not stated interest
+
+## Documentation
+
+- **[USAGE.md](USAGE.md)**: Complete usage guide with examples
+- **[SKILL.md](gstack-skills/SKILL.md)**: Main skill documentation
+- **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
+
+## Architecture
+
+```
+gstack-openclaw-skills/
+├── gstack-skills/              # Main skill package
+│   ├── SKILL.md               # Main entry point and router
+│   ├── office-hours/          # Product ideation
+│   ├── plan-ceo-review/       # CEO perspective
+│   ├── plan-eng-review/       # Engineering review
+│   ├── review/                # Code review
+│   ├── qa/                    # Testing and QA
+│   ├── ship/                  # Deployment
+│   ├── investigate/           # Debugging
+│   └── scripts/               # Helper scripts
+│       ├── command_router.py  # Command routing
+│       └── state_manager.py   # State management
+├── USAGE.md                   # Usage guide
+├── README.md                  # This file
+└── CONTRIBUTING.md            # Contributing guide
+```
+
+## How It Works
+
+### Command Routing
+
+When you type a command:
+
+```python
+User: "/review my changes"
+```
+
+The `command_router.py` script:
+
+1. Parses the input: `/review` + `my changes`
+2. Routes to the appropriate skill: `review/SKILL.md`
+3. Loads the skill instructions
+4. AI executes the skill's workflow automatically
+
+### State Management
+
+Skills can share data through workflow state:
+
+```python
+# Workflow starts
+/state_manager.py init → creates workflow ID: abc12345
+
+# Each skill can read/write state
+/office-hours → saves validation results
+/plan-eng-review → reads validation, saves architecture
+/review → reads architecture, saves code issues
+/qa → reads code issues, saves test results
+/ship → reads all state, creates deployment package
+```
+
+### Automated Execution
+
+Unlike v1.0 (which only provided guidance), v2.0 skills:
+
+1. **Analyze context** (git status, project structure, etc.)
+2. **Execute workflows** automatically
+3. **Make decisions** (what tests to run, what bugs to fix)
+4. **Take actions** (run tests, fix bugs, create PRs)
+5. **Report results** (comprehensive status reports)
+
+## Comparison with Original gstack
+
+| Feature | Original gstack | gstack-skills v2.0 |
+|---------|----------------|-------------------|
+| Platform | Claude Code | OpenClaw/WorkBuddy |
+| Execution | Manual scripts | AI-executed workflows |
+| Commands | Slash commands | Commands + natural language |
+| Integration | Bun/Git specific | Platform-agnostic |
+| State | File-based | Managed state system |
+| Learning Curve | High | Low |
+
+## FAQ
+
+### Q: How is this different from the original gstack?
+
+**A**: The original gstack was built for Claude Code with manual scripts. gstack-skills v2.0 is a complete rewrite for OpenClaw/WorkBuddy that automates execution. You don't need Bun or specific scripts - just use natural language commands.
+
+### Q: Can I use this with any OpenClaw/WorkBuddy project?
+
+**A**: Yes! gstack-skills is platform-agnostic and works with any project.
+
+### Q: Do I need to install dependencies?
+
+**A**: No, gstack-skills doesn't require external dependencies. It uses the tools you already have (git, your test framework, etc.).
+
+### Q: What if a command fails?
+
+**A**: Each skill provides clear error messages and suggests how to fix issues. Common issues are documented in the [USAGE.md](USAGE.md) troubleshooting section.
+
+### Q: Can I customize the workflows?
+
+**A**: Yes! Each skill is a separate markdown file that you can customize. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+### Q: Does this work with CI/CD?
+
+**A**: `/ship` is designed to work with existing CI/CD pipelines. It runs tests, generates PRs, and updates documentation - all CI/CD compatible.
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+Areas where we'd love help:
+- Adding more specialized skills
+- Improving error handling
+- Adding more examples
+- Writing tests
+- Translating documentation
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file.
+
+## Acknowledgments
+
+- **Garry Tan** for creating [gstack](https://github.com/garrytan/gstack) and sharing the "Boil the Lake" philosophy
+- **Y Combinator** for the office hours framework
+- **All contributors** to gstack-skills
+
+## Links
+
+- **GitHub**: https://github.com/AICreator-Wind/gstack-openclaw-skills
+- **Original gstack**: https://github.com/garrytan/gstack
+- **OpenClaw**: https://openclaw.ai
+- **WorkBuddy**: https://codebuddy.cn
+
+---
+
+**Version**: 2.0.0  
+**Last Updated**: 2026-03-21  
+**Status**: ✅ Production Ready
